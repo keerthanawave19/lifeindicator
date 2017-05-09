@@ -18,7 +18,7 @@ module.exports = function convert(startYear)
        throw new Error('Not a number');
  }
 const rl = readline.createInterface({
-  input: fs.createReadStream('Indicators(1).csv')
+  input: fs.createReadStream('../inputdata/Indicators(1).csv')
 });
 rl.on('line', (line) => {
 data = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
