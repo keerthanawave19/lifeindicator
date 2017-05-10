@@ -5,11 +5,13 @@ let resultMale = [];
 let resultFemale = [];
 let totalMale = 0;
 let totalFemale = 0;
-
+let log4js = require('log4js');
+let logger = log4js.getLogger();
+/* log4.js */
 module.exports = function convert(startYear)
 {
-	if(typeof startYear==='string'){
-   return "";
+if(typeof startYear === 'string') {
+   return ' ';
  }
 
 
@@ -53,6 +55,7 @@ addFemale(resultFemale);
 rl.on('close', () => {
 fs.writeFile('output.json', (JSON.stringify(totalMale, null, 1)));
 fs.writeFile('output1.json', (JSON.stringify(totalFemale, null, 1)));
+logger.debug("file closed");
 });
 
 return "JSON written successfully"
