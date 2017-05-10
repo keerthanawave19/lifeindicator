@@ -13,9 +13,7 @@ module.exports = function convert(startYear)
 if(typeof startYear === 'string') {
    return ' ';
  }
-
-
-	if(typeof startYear !== 'number' || isNaN(startYear))
+if(typeof startYear !== 'number' || isNaN(startYear))
  {
        throw new Error('Not a number');
  }
@@ -35,6 +33,7 @@ if(data[3] === 'SP.DYN.LE00.MA.IN')
 resultMale.push({ country: data[0], year: data[4], gender: data[5]});
 }
 }
+/* to calculate birth rate */
 function addMale(rm)
  {
 	for(let i = 0; i < rm.length; i = i + 1)
@@ -55,6 +54,7 @@ addFemale(resultFemale);
 rl.on('close', () => {
 fs.writeFile('output.json', (JSON.stringify(totalMale, null, 1)));
 fs.writeFile('output1.json', (JSON.stringify(totalFemale, null, 1)));
+/* json file creation */
 logger.debug("file closed");
 });
 
